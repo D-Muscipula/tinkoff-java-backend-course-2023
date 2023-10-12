@@ -8,11 +8,12 @@ public final class Task8 {
 
     }
 
-    @SuppressWarnings("checkstyle:MagicNumber") public static boolean knightBoardCapture(int[][] board) {
+    @SuppressWarnings("checkstyle:MagicNumber")
+    public static boolean knightBoardCapture(int[][] board) {
         if (board == null || board.length != SIZE_OF_BORDER) {
             return false;
         }
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < SIZE_OF_BORDER; i++) {
             if (board[i].length != SIZE_OF_BORDER) {
                 return false;
             }

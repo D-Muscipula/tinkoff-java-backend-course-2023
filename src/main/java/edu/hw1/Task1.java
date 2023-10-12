@@ -12,8 +12,6 @@ public final class Task1 {
 
     public static int minutesToSeconds(String time) {
         String[] minutesAndSeconds = time.split(":");
-        //String regex = "\\d+";
-        //LOGGER.info(Arrays.toString(minutesAndSeconds));
         String regex = "\\d+";
         if (minutesAndSeconds.length != 2 || minutesAndSeconds[1].length() != 2) {
             return -1;

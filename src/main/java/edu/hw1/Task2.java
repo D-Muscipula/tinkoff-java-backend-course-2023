@@ -6,7 +6,8 @@ public final class Task2 {
 
     }
 
-    @SuppressWarnings("checkstyle:MagicNumber") public static int countDigits(int number) {
+    @SuppressWarnings("checkstyle:MagicNumber")
+    public static int countDigits(int number) {
         if (number == 0) {
             return 1;
         }

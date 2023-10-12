@@ -7,7 +7,6 @@ public final class Task5 {
     }
 
     public static boolean isPalindromeDescendant(int number) {
-        //String regex = "\\d+";
         String string = String.valueOf(number);
         String reverse = new StringBuilder(string).reverse().toString();
         String newString = string;
@@ -18,7 +17,6 @@ public final class Task5 {
         } else {
             while (newString.length() % 2 != 1 || newString.length() > 1) {
                 StringBuilder sb = new StringBuilder();
-                //newString = "";
                 if (reverse.equals(string)) {
                     return true;
                 }
@@ -28,11 +26,8 @@ public final class Task5 {
                     int sum = Character.getNumericValue(first) + Character.getNumericValue(second);
                     String temp = String.valueOf(sum);
                     sb.append(temp);
-                    //newString += temp;
-                    //newString = string.replaceFirst(String.valueOf(first) + String.valueOf(second), temp);
                 }
                 newString = sb.toString();
-                //LOGGER.info(newString);
                 string = newString;
                 reverse = new StringBuilder(string).reverse().toString();
             }

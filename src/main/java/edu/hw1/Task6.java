@@ -39,7 +39,6 @@ public final class Task6 {
             if (countOfDigits < Task2.countDigits(num1)) {
                 temp *= (int) Math.pow(TEN, Task2.countDigits(num1) - countOfDigits);
             }
-            //LOGGER.info(num1 + " " + num2 + " " + temp);
             int k = countK(temp);
             k = k == -1 ? -1 : k + 1;
             return k;

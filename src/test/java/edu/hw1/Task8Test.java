@@ -1,5 +1,6 @@
 package edu.hw1;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +16,7 @@ public class Task8Test {
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 1, 0, 0, 0, 0, 0, 1},
                 {0, 0, 0, 0, 1, 0, 0, 0}};
-        assert (Task8.knightBoardCapture(board));
+        Assertions.assertTrue(Task8.knightBoardCapture(board));
         board = new int[][]
             {{1, 0, 1, 0, 1, 0, 1, 0},
                 {0, 1, 0, 1, 0, 1, 0, 1},
@@ -25,7 +26,7 @@ public class Task8Test {
                 {0, 0, 0, 0, 0, 1, 0, 1},
                 {1, 0, 0, 0, 1, 0, 1, 0},
                 {0, 0, 0, 1, 0, 1, 0, 1}};
-        assert (!Task8.knightBoardCapture(board));
+        Assertions.assertFalse(Task8.knightBoardCapture(board));
         board = new int[][]
             {
                 {0, 0, 0, 0, 1, 0, 0, 0},
@@ -36,7 +37,7 @@ public class Task8Test {
                 {0, 0, 0, 0, 0, 1, 0, 0},
                 {0, 0, 0, 0, 0, 1, 0, 0},
                 {1, 0, 0, 0, 0, 0, 0, 0}};
-        assert (!Task8.knightBoardCapture(board));
+        Assertions.assertFalse(Task8.knightBoardCapture(board));
     }
 
     @Test
@@ -51,7 +52,7 @@ public class Task8Test {
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0}};
-        assert (!Task8.knightBoardCapture(board));
+        Assertions.assertFalse(Task8.knightBoardCapture(board));
         board = new int[][]
             {{0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 1, 0, 0},
@@ -61,7 +62,7 @@ public class Task8Test {
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0}};
-        assert (!Task8.knightBoardCapture(board));
+        Assertions.assertFalse(Task8.knightBoardCapture(board));
         board = new int[][]
             {{0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
@@ -71,7 +72,7 @@ public class Task8Test {
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0}};
-        assert (!Task8.knightBoardCapture(board));
+        Assertions.assertFalse(Task8.knightBoardCapture(board));
         board = new int[][]
             {{0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
@@ -81,7 +82,7 @@ public class Task8Test {
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0}};
-        assert (!Task8.knightBoardCapture(board));
+        Assertions.assertFalse(Task8.knightBoardCapture(board));
         board = new int[][]
             {{0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
@@ -91,7 +92,7 @@ public class Task8Test {
                 {0, 0, 0, 0, 0, 1, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0}};
-        assert (!Task8.knightBoardCapture(board));
+        Assertions.assertFalse(Task8.knightBoardCapture(board));
         board = new int[][]
             {{0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
@@ -101,7 +102,7 @@ public class Task8Test {
                 {0, 0, 0, 1, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0}};
-        assert (!Task8.knightBoardCapture(board));
+        Assertions.assertFalse(Task8.knightBoardCapture(board));
         board = new int[][]
             {{0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
@@ -111,7 +112,7 @@ public class Task8Test {
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0}};
-        assert (!Task8.knightBoardCapture(board));
+        Assertions.assertFalse(Task8.knightBoardCapture(board));
         board = new int[][]
             {{0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
@@ -121,7 +122,7 @@ public class Task8Test {
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0}};
-        assert (!Task8.knightBoardCapture(board));
+        Assertions.assertFalse(Task8.knightBoardCapture(board));
 
     }
 
@@ -136,7 +137,7 @@ public class Task8Test {
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0}};
-        assert (Task8.knightBoardCapture(board));
+        Assertions.assertTrue(Task8.knightBoardCapture(board));
         board = new int[][]
             {{0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
@@ -146,7 +147,7 @@ public class Task8Test {
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0}};
-        assert (Task8.knightBoardCapture(board));
+        Assertions.assertTrue(Task8.knightBoardCapture(board));
     }
 
     @Test
@@ -160,7 +161,7 @@ public class Task8Test {
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0}};
-        assert (Task8.knightBoardCapture(board));
+        Assertions.assertTrue(Task8.knightBoardCapture(board));
         board = new int[][]
             {{1, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 1, 0, 0, 0, 0, 0},
@@ -170,7 +171,7 @@ public class Task8Test {
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0}};
-        assert (!Task8.knightBoardCapture(board));
+        Assertions.assertFalse(Task8.knightBoardCapture(board));
         board = new int[][]
             {{1, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
@@ -180,12 +181,12 @@ public class Task8Test {
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0}};
-        assert (!Task8.knightBoardCapture(board));
+        Assertions.assertFalse(Task8.knightBoardCapture(board));
     }
 
     @Test
     void knightBoardCaptureIllegal() {
-        assert (!Task8.knightBoardCapture(null));
+        Assertions.assertFalse(Task8.knightBoardCapture(null));
         int[][] board = new int[][]
             {{1, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
@@ -195,6 +196,6 @@ public class Task8Test {
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0}};
-        assert (!Task8.knightBoardCapture(board));
+        Assertions.assertFalse(Task8.knightBoardCapture(board));
     }
 }
