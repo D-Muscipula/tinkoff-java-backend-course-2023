@@ -44,7 +44,9 @@ public class Task1Test {
             var addition = new Task1.Expr.Addition(constant1, constant2);
             Assertions.assertEquals(doubles[i] + doubles[i + 1], addition.evaluate());
         }
-        Assertions.assertEquals(0, new Task1.Expr.Addition(null, new Task1.Expr.Constant(1)).evaluate());
+        Assertions.assertEquals(1, new Task1.Expr.Addition(null, new Task1.Expr.Constant(1)).evaluate());
+        Assertions.assertEquals(5, new Task1.Expr.Addition(new Task1.Expr.Constant(5), null).evaluate());
+        Assertions.assertEquals(0, new Task1.Expr.Addition(null, null).evaluate());
     }
 
     @Test

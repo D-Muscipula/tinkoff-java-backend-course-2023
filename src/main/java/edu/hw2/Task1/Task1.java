@@ -1,5 +1,7 @@
 package edu.hw2.Task1;
 
+import java.util.Objects;
+
 public class Task1 {
 
     public sealed interface Expr {
@@ -35,8 +37,11 @@ public class Task1 {
         record Addition(Expr expr1, Expr expr2) implements Expr {
             @Override
             public double evaluate() {
-                if (expr1 == null || expr2 == null) {
+                if (expr1 == null && expr2 == null) {
                     return 0;
+                }
+                if (expr1 == null || expr2 == null) {
+                    return Objects.requireNonNullElse(expr1, expr2).evaluate();
                 }
                 return expr1.evaluate() + expr2.evaluate();
             }
