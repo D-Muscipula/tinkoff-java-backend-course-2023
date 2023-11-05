@@ -35,6 +35,7 @@ public class AlgorithmOfAldousBroder implements Generator {
             } else {
                 randomNum = queue.poll();
             }
+            //Случайно выбирается одна из 4 клеток, окружающих текущую клетку, и соединяется с текущей
             switch (randomNum) {
                 case 0:
                     if (currentCoordinate.col() - 2 >= 0

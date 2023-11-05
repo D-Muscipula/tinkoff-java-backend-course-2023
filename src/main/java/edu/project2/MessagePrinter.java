@@ -16,7 +16,7 @@ public final class MessagePrinter {
 
     public static void chooseSearchPhrase() {
         String message = """
-            Выберите алгоритм генерации:
+            Выберите алгоритм поиска:
             1 - BFS
             2 - DFS""";
         LOGGER.info(message);
@@ -27,11 +27,11 @@ public final class MessagePrinter {
     }
 
     public static void askHeight() {
-        LOGGER.info("Введите высоту");
+        LOGGER.info("Введите высоту (нечётное число, при вводе чётного числа высота лабиринта будет на 1 меньше)");
     }
 
     public static void askWidth() {
-        LOGGER.info("Введите ширину");
+        LOGGER.info("Введите ширину (нечётное число, при вводе чётного числа ширина лабиринта будет на 1 меньше)");
     }
 
     public static void startPoint() {

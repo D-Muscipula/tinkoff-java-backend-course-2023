@@ -9,28 +9,19 @@ public class MazeRenderer implements Renderer {
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_BLUE = "\u001B[34m";
     public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String CELL = "\u2588\u2588";
+    public static final String CELL = "██";
     private static final String PASSAGE = ANSI_BLUE + CELL;
     private static final String WALL = ANSI_BLACK + CELL;
     private static final String PATH = ANSI_GREEN + CELL;
-//⬛
 
     @Override
     public String render(Maze maze) {
+        if (maze == null || maze.getGrid() == null) {
+            throw new IllegalArgumentException();
+        }
         StringBuilder mazeString = new StringBuilder();
-        String wall = String.valueOf(WALL);
-        /*mazeString.append("  ");
-        for (int i = 0; i < maze.getWidth(); i++) {
-            mazeString.append(i);
-            if (i < 10) {
-                mazeString.append(" ");
-            }
-        }
-        mazeString.append("\n\n");*/
-        for (int i = 0; i < maze.getWidth() + 1; i++) {
-            mazeString.append(WALL);
-
-        }
+        String wall = WALL;
+        mazeString.append(WALL.repeat(Math.max(0, maze.getWidth() + 1)));
         if (maze.getWidth() % 2 != 0) {
             mazeString.append(WALL);
         }
@@ -60,12 +51,12 @@ public class MazeRenderer implements Renderer {
 
     @Override
     public String render(Maze maze, List<Coordinate> path) {
-        StringBuilder mazeString = new StringBuilder();
-        String wall = String.valueOf(WALL);
-        for (int i = 0; i < maze.getWidth() + 1; i++) {
-            mazeString.append(WALL);
-
+        if (maze == null || path == null || maze.getGrid() == null) {
+            throw new IllegalArgumentException();
         }
+        StringBuilder mazeString = new StringBuilder();
+        String wall = WALL;
+        mazeString.append(WALL.repeat(Math.max(0, maze.getWidth() + 1)));
         if (maze.getWidth() % 2 != 0) {
             mazeString.append(WALL);
         }

@@ -54,7 +54,6 @@ public class AlgorithmOfKruskal implements Generator {
                         : coordinateSetOfSecondNode) {
                     coordinateSetHashMap.put(element, coordinateSetHashMap.get(firstNode));
                 }
-                //coordinateSetHashMap.put(secondNode, coordinateSetHashMap.get(firstNode));
                 //"Перекрашиваем" ячейки
                 makeCellThePassage(cells, firstNode.row(), firstNode.col());
                 makeCellThePassage(cells, middle.row(), middle.col());
