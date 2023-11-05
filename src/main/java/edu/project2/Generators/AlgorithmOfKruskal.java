@@ -4,21 +4,33 @@ import edu.project2.MazeStructure.Cell;
 import edu.project2.MazeStructure.Coordinate;
 import edu.project2.MazeStructure.Edge;
 import edu.project2.MazeStructure.Maze;
+import edu.project2.Random.Shuffle;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
 public class AlgorithmOfKruskal implements Generator {
+    private final Shuffle shuffle;
+
+    public AlgorithmOfKruskal(Shuffle shuffle) {
+        if (shuffle == null) {
+            throw new IllegalArgumentException();
+        }
+        this.shuffle = shuffle;
+    }
+
     @Override
     public Maze generate(int height, int width) {
+        if (height <= 0 || width <= 0) {
+            throw new IllegalArgumentException();
+        }
         Cell[][] cells = new Cell[height][width];
         ArrayList<Edge> edges = new ArrayList<>();
         HashMap<Coordinate, Set<Coordinate>> coordinateSetHashMap = new HashMap<>();
         initCellsEdgesAndMap(cells, edges, coordinateSetHashMap);
         //Перемешиваем ребра в случайном порядке
-        Collections.shuffle(edges);
+        shuffle.shuffle(edges);
         connectTheEdges(edges, coordinateSetHashMap, cells);
         return new Maze(height, width, cells);
     }

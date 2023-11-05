@@ -6,6 +6,7 @@ import edu.project2.Generators.Generator;
 import edu.project2.MazeStructure.Coordinate;
 import edu.project2.MazeStructure.Maze;
 import edu.project2.Random.AldousBroderRandom;
+import edu.project2.Random.KruskalRandom;
 import edu.project2.Solvers.BFSSolver;
 import edu.project2.Solvers.DFSSolver;
 import java.util.List;
@@ -25,7 +26,7 @@ public final class AppRunner {
             Maze maze = null;
             switch (variant) {
                 case 1:
-                    Generator generator = new AlgorithmOfKruskal();
+                    Generator generator = new AlgorithmOfKruskal(new KruskalRandom());
                     maze = generator.generate(height, width);
                     break;
                 case 2:

@@ -31,7 +31,7 @@ public class AlgorithmOfAldousBroder implements Generator {
         while (!need.isEmpty()) {
             int randomNum = 0;
             if (queue.isEmpty()) {
-                queue = randomGenerator.generate(3, 10);
+                queue = randomGenerator.generate(3, 20);
             } else {
                 randomNum = queue.poll();
             }

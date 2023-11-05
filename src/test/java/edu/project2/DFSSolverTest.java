@@ -11,13 +11,13 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BFSSolverTest {
+public class DFSSolverTest {
     @Test
     void solveTest() {
-        BFSSolver bfsSolver = new BFSSolver();
+        DFSSolver dfsSolver = new DFSSolver();
         AlgorithmOfKruskal algorithmOfKruskal = new AlgorithmOfKruskal(new AlgorithmOfKruskalTest.OurShuffle());
         Maze maze = algorithmOfKruskal.generate(5, 5);
-        List<Coordinate> coordinates  = bfsSolver.solve(maze,new Coordinate(0, 0),new Coordinate(4,4));
+        List<Coordinate> coordinates  = dfsSolver.solve(maze,new Coordinate(0, 0),new Coordinate(4,4));
         List<Coordinate> result = new ArrayList<>(){{
             add(new Coordinate(0,0));
             add(new Coordinate(0,1));
@@ -33,7 +33,7 @@ public class BFSSolverTest {
     }
 
     @Test
-    void checkWithDFS() {
+    void checkWithBFS() {
         DFSSolver dfsSolver = new DFSSolver();
         BFSSolver bfsSolver = new BFSSolver();
         AlgorithmOfKruskal algorithmOfKruskal = new AlgorithmOfKruskal(new KruskalRandom());
