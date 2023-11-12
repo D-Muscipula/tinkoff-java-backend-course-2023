@@ -20,6 +20,7 @@ public class Task2Test {
     void getNextFridayOf13th() {
         Assertions.assertEquals("2024-09-13", Task2.getNextFridayOf13th("11/08/23"));
         Assertions.assertEquals("2024-09-13", Task2.getNextFridayOf13th("10/13/2023"));
+        Assertions.assertEquals("2023-10-13", Task2.getNextFridayOf13th("10/10/2023"));
         Assertions.assertEquals("2024-12-13", Task2.getNextFridayOf13th("2024-09-13"));
         Assertions.assertThrows(IllegalArgumentException.class, () -> Task2.getNextFridayOf13th("esf"));
     }

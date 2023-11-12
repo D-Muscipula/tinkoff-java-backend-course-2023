@@ -2,12 +2,14 @@ package edu.hw5;
 
 import edu.hw5.Task8.Task8;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class Task8Test {
     @Test
+    @DisplayName("Проверка на то, что строки из алфавита {0, 1}")
     void functionsContainOnlyOneAndZero() {
         Assertions.assertFalse(Task8.isLengthOdd("0a0"));
 
@@ -56,7 +58,6 @@ public class Task8Test {
     @ValueSource(strings = {"", "1", "11", "111", "110", "1110", "011", "0111", "111011", "1111", "01010",
         "1010010101"})
     void isAnyStringExcept11And111Test(String s) {
-        //System.out.println(s + Task8.isAnyStringExcept11And111(s));
         Assertions.assertEquals(!(s.equals("11") || s.equals("111")), Task8.isAnyStringExcept11And111(s));
     }
 

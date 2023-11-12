@@ -14,8 +14,6 @@ public final class Task3 {
         } catch (Exception e) {
             return Optional.empty();
         }
-
-        //return Optional.empty();
     }
 
     private Task3() {

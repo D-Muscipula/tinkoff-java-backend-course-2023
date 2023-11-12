@@ -10,6 +10,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 public class Task7Test {
 
     @Test
+    @DisplayName("Проверка на то, что строки из алфавита {0, 1}")
     void functionsContainOnlyOneAndZero() {
         Assertions.assertFalse(Task7.isTheThirdZero("0a0"));
         Assertions.assertFalse(Task7.isTheThirdZero("010b"));
@@ -28,15 +29,15 @@ public class Task7Test {
     @ParameterizedTest
     @ValueSource(strings = {"010", "010001", "101", "100010", "110", "011", "0010000000", "0", "00"})
     void isTheThirdZero(String s) {
-        //System.out.println(s + Task7.isTheThirdZero(s));
         Assertions.assertEquals((s.length() >= 3) && (s.charAt(2) == '0'), Task7.isTheThirdZero(s));
     }
 
     @ParameterizedTest
     @DisplayName("Разные вариации, в том числе строки из 1 символа")
-    @ValueSource(strings = {"010", "010001", "101", "100010", "100", "011", "1", "0"})
+    @ValueSource(strings = {"010", "010001", "101", "100010", "100", "011", "1", "0", ""})
     void isTheSameSymbol(String s) {
-        Assertions.assertEquals(s.charAt(0) == s.charAt(s.length() - 1), Task7.isTheSameSymbol(s));
+        Assertions.assertEquals(s.isEmpty() ||
+            s.charAt(0) == s.charAt(s.length() - 1), Task7.isTheSameSymbol(s));
     }
 
     @ParameterizedTest

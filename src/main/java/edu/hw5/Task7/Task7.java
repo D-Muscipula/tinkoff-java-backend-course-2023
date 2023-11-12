@@ -9,7 +9,7 @@ public final class Task7 {
     }
 
     public static boolean isTheSameSymbol(String s) {
-        String regexp = "^0[01]*0$" + "|^1[01]*1$" + "|^0$|^1$";
+        String regexp = "^0[01]*0$" + "|^1[01]*1$" + "|^0$|^1$" + "|^$";
         return Pattern.compile(regexp).matcher(s).find();
     }
 

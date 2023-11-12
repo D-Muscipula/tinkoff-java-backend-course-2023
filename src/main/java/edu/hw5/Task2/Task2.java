@@ -32,7 +32,6 @@ public final class Task2 {
     }
 
     public static String getNextFridayOf13th(String date) {
-        //LocalDate localDate = LocalDate.parse(date, DateTimeFormatter.ofPattern(FORMAT));
         LocalDate localDate;
         if (Task3.parseDate(date).isPresent()) { //Можно использовать форматы из 3 задания
             localDate = Task3.parseDate(date).get();
@@ -49,6 +48,10 @@ public final class Task2 {
             var tempDate = date1;
             tempDate = tempDate.plusDays(1); //На случай если текущая дата пятница 13, чтобы найти следующую
             while (tempDate.getDayOfMonth() != THIRTEEN || tempDate.getDayOfWeek() != DayOfWeek.FRIDAY) {
+                if (tempDate.getDayOfMonth() < THIRTEEN //Если текущее число меньше 13 и пятница 13-го в этом же месяце
+                    && tempDate.withDayOfMonth(THIRTEEN).getDayOfWeek() == DayOfWeek.FRIDAY) {
+                    return  tempDate.withDayOfMonth(THIRTEEN);
+                }
                 tempDate = tempDate.withDayOfMonth(THIRTEEN);
                 tempDate = tempDate.plusMonths(1);
             }

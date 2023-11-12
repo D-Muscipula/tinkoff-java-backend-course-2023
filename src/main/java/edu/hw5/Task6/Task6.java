@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public final class Task6 {
 
     public static boolean isSubsequence(String s, String t) {
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder(".*");
         for (var letter : s.toCharArray()) {
             stringBuilder.append(letter).append(".*");
         }

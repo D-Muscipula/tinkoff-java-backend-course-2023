@@ -13,6 +13,7 @@ public class Task5Test {
         Assertions.assertTrue(Task5.isRussianCarNumber("А123ВЕ777"));
         Assertions.assertTrue(Task5.isRussianCarNumber("О777ОО177"));
 
+        Assertions.assertFalse(Task5.isRussianCarNumber("В777ОР06969"));
         Assertions.assertFalse(Task5.isRussianCarNumber("АО777ОО177"));
         Assertions.assertFalse(Task5.isRussianCarNumber("123АВЕ777"));
         Assertions.assertFalse(Task5.isRussianCarNumber("А123ВГ77"));
