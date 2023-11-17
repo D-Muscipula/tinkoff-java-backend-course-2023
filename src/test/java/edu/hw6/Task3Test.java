@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -38,7 +39,7 @@ public class Task3Test {
         } catch (IOException ignored) {
 
         }
-        Assertions.assertEquals(new ArrayList<>(List.of(paths)), paths1);
+        Assertions.assertEquals(Set.of(List.of(paths)), Set.of(paths1));
     }
 
     @Test
@@ -68,7 +69,7 @@ public class Task3Test {
             add(paths[0]);
             add(paths[3]);
         }};
-        Assertions.assertEquals(paths2, paths1);
+        Assertions.assertEquals(Set.of(paths2), Set.of(paths1));
     }
 
     @Test
@@ -101,7 +102,7 @@ public class Task3Test {
             add(paths[1]);
             add(paths[6]);
         }};
-        Assertions.assertEquals(paths2, paths1);
+        Assertions.assertEquals(Set.of(paths2), Set.of(paths1));
     }
 
     @Test
