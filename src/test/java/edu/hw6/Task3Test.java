@@ -7,8 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-
+import java.util.TreeSet;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static edu.hw6.Task3.AbstractFilter.globMatches;
@@ -39,7 +38,7 @@ public class Task3Test {
         } catch (IOException ignored) {
 
         }
-        Assertions.assertEquals(Set.of(List.of(paths)), Set.of(paths1));
+        Assertions.assertEquals(new TreeSet<>(List.of(paths)), new TreeSet<>(paths1));
     }
 
     @Test
@@ -69,7 +68,7 @@ public class Task3Test {
             add(paths[0]);
             add(paths[3]);
         }};
-        Assertions.assertEquals(Set.of(paths2), Set.of(paths1));
+        Assertions.assertEquals(new TreeSet<>(paths2), new TreeSet<>(paths1));
     }
 
     @Test
@@ -102,7 +101,7 @@ public class Task3Test {
             add(paths[1]);
             add(paths[6]);
         }};
-        Assertions.assertEquals(Set.of(paths2), Set.of(paths1));
+        Assertions.assertEquals(new TreeSet<>(paths2), new TreeSet<>(paths1));
     }
 
     @Test
