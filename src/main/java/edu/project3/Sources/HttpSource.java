@@ -24,7 +24,7 @@ public class HttpSource implements LogSource {
                 return new BufferedReader(new InputStreamReader(inputStream)).lines().collect(Collectors.joining("\n"));
             }
         } catch (IOException e) {
-            throw new RuntimeException("Что-то не так с http", e);
+            throw new RuntimeException("что-то не так с http", e);
         }
         return "";
     }

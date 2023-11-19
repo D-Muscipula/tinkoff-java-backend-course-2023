@@ -31,7 +31,7 @@ public final class LogParser {
                 Integer.parseInt(bodyBytesSent), httpReferer, httpUserAgent
             );
         } else {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("неправильный формат лога " + log);
         }
     }
 

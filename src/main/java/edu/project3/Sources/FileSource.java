@@ -16,7 +16,7 @@ public class FileSource implements LogSource {
             MasterOfSources.paths.add(fileName);
             return new String(Files.readAllBytes(pathOfFile)).lines().collect(Collectors.joining("\n"));
         } catch (IOException e) {
-            throw new IllegalArgumentException("Что-то не так с файлом");
+            throw new IllegalArgumentException("что-то не так с файлом");
         }
     }
 }

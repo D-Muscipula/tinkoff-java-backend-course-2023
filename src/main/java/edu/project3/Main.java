@@ -11,6 +11,8 @@ public final class Main {
         try {
             Arguments arguments = Arguments.getCommandFromString(stringArguments);
             AppRunner.run(arguments);
+        } catch (IllegalStateException e) {
+            LOGGER.info("Ошибка при вводе команды");
         } catch (Exception e) {
             LOGGER.info("Что-то пошло не так " + e.getMessage());
         }

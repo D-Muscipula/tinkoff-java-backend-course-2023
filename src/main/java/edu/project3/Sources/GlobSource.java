@@ -16,7 +16,7 @@ public class GlobSource implements LogSource {
         try {
             return readFilesMatchingGlob(path);
         } catch (IOException e) {
-            throw new RuntimeException("Ошибка в glob строке " + path, e);
+            throw new RuntimeException("ошибка в glob строке " + path, e);
         }
     }
 

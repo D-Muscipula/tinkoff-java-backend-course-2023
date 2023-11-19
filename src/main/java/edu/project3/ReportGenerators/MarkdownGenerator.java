@@ -43,7 +43,7 @@ public class MarkdownGenerator implements ReportGenerator {
             Files.createFile(path);
             Files.write(path, markdownTableS.getBytes());
         } catch (IOException e) {
-            throw new RuntimeException("Что-то пошло не так при создании файла отчета", e);
+            throw new RuntimeException("что-то пошло не так при создании файла отчета", e);
         }
         LOGGER.info(markdownTableS);
 
