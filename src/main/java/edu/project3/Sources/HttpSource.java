@@ -19,7 +19,7 @@ public class HttpSource implements LogSource {
             int responseCode = httpURLConnection.getResponseCode();
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 String fileName = Paths.get(url.getPath()).getFileName().toString();
-                FileSource.PATHS.add(fileName);
+                MasterOfSources.paths.add(fileName);
                 InputStream inputStream = httpURLConnection.getInputStream();
                 return new BufferedReader(new InputStreamReader(inputStream)).lines().collect(Collectors.joining("\n"));
             }

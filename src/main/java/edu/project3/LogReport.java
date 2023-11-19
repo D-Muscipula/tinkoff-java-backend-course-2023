@@ -1,6 +1,6 @@
 package edu.project3;
 
-import edu.project3.Sources.FileSource;
+import edu.project3.Sources.MasterOfSources;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -46,7 +46,7 @@ public class LogReport {
     public final MyStats myStats = new MyStats();
 
     public void generateStatistics() {
-        commonInformation.put(FILES, String.join(" ", FileSource.PATHS));
+        commonInformation.put(FILES, String.join(" ", MasterOfSources.paths));
         BigInteger quantity = BigInteger.valueOf(Integer.parseInt(commonInformation.get(QUANTITY)));
         commonInformation.put(AVERAGE, bytes.divide(quantity) + "b");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");

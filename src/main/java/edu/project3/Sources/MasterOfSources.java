@@ -1,8 +1,11 @@
 package edu.project3.Sources;
 
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class MasterOfSources implements LogSource {
+
+    public static ArrayList<String> paths = new ArrayList<>();
 
     @Override
     public String getData(String path) {

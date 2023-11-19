@@ -4,11 +4,13 @@ import edu.project3.Sources.MasterOfSources;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.stream.Stream;
 
 public class LogReportTest {
     @Test
     void logReportTest() {
+        MasterOfSources.paths = new ArrayList<>();
         String data = new MasterOfSources().getData("src/test/java/edu/project3/TestFiles/someLogs.txt");
         Stream<LogRecord> logRecordStream = LogParser.getStreamOfRecords(data);
         LocalDateTime from = LocalDateTime.of(2023,11,15,10,0);
