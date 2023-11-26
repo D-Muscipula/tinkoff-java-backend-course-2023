@@ -153,7 +153,7 @@ public class TasksTest {
     }
 
     @Test
-    @DisplayName("Если K-животное отсутствует, то возвращается пустой объект животного")
+    @DisplayName("Если K-животное отсутствует, то кидается исключение")
     void getTheKOldestAnimalTest() {
         ArrayList<Animal> animalList = new ArrayList<>() {{
             add(new Animal("Magikarp", Animal.Type.FISH, Animal.Sex.M, 3, 3, 3, true));
@@ -171,7 +171,7 @@ public class TasksTest {
         Assertions.assertEquals("Magikarp", Tasks.getTheKOldestAnimal(animalList, 4).name());
         Assertions.assertEquals("Ariados", Tasks.getTheKOldestAnimal(animalList, 5).name());
         Assertions.assertEquals("Gyarados", Tasks.getTheKOldestAnimal(animalList, 6).name());
-        Assertions.assertEquals("", Tasks.getTheKOldestAnimal(animalList, 7).name());
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Tasks.getTheKOldestAnimal(animalList, 7).name());
     }
 
     @Test
