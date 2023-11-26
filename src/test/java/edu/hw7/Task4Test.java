@@ -14,7 +14,6 @@ public class Task4Test {
     @Test
     void multithreadingGetPITest() {
         double a = Task4.multithreadingGetPI(1000000000, 4);
-        System.out.println(a);
         Assertions.assertTrue(a < 3.142 && a > 3.140);
     }
 }
