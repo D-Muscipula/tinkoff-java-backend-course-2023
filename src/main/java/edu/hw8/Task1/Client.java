@@ -29,7 +29,7 @@ public class Client {
         buffer = ByteBuffer.wrap(msg.getBytes());
         String response = null;
         try {
-            System.out.println("Клиент: " + new String(buffer.array()));
+            //System.out.println("Клиент: " + new String(buffer.array()));
             client.write(buffer);
             buffer.clear();
             buffer = ByteBuffer.allocate(BUFFER_SIZE);
