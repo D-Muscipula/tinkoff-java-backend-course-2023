@@ -7,7 +7,7 @@ import java.nio.channels.SocketChannel;
 
 public class Client {
 
-    private SocketChannel client;
+    private final SocketChannel client;
     private ByteBuffer buffer;
     private final static int BUFFER_SIZE = 1024;
 
@@ -20,8 +20,8 @@ public class Client {
         try {
             client = SocketChannel.open(new InetSocketAddress("localhost", port));
             buffer = ByteBuffer.allocate(BUFFER_SIZE);
-        } catch (IOException e) {
-            //e.printStackTrace();
+        } catch (IOException ignored) {
+            throw new RuntimeException();
         }
     }
 
@@ -29,7 +29,6 @@ public class Client {
         buffer = ByteBuffer.wrap(msg.getBytes());
         String response = null;
         try {
-            //System.out.println("Клиент: " + new String(buffer.array()));
             client.write(buffer);
             buffer.clear();
             buffer = ByteBuffer.allocate(BUFFER_SIZE);
@@ -40,11 +39,10 @@ public class Client {
                 if (r != 0) {
                     return response;
                 }
-                //System.out.println("response=" + response);
             }
             buffer.clear();
         } catch (IOException e) {
-            //e.printStackTrace();
+            throw new RuntimeException();
         }
         return response;
 
