@@ -9,6 +9,7 @@ public class Client {
 
     private SocketChannel client;
     private ByteBuffer buffer;
+    private final static int BUFFER_SIZE = 1024;
 
     public void stop() throws IOException {
         client.close();
@@ -18,9 +19,9 @@ public class Client {
     public Client(int port) {
         try {
             client = SocketChannel.open(new InetSocketAddress("localhost", port));
-            buffer = ByteBuffer.allocate(1024);
+            buffer = ByteBuffer.allocate(BUFFER_SIZE);
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
     }
 
@@ -31,7 +32,7 @@ public class Client {
             System.out.println("Клиент: " + new String(buffer.array()));
             client.write(buffer);
             buffer.clear();
-            buffer = ByteBuffer.allocate(1024);
+            buffer = ByteBuffer.allocate(BUFFER_SIZE);
             int r = client.read(buffer);
             while (r != -1) {
                 response = new String(buffer.array()).trim();
@@ -39,11 +40,11 @@ public class Client {
                 if (r != 0) {
                     return response;
                 }
-                System.out.println("response=" + response);
+                //System.out.println("response=" + response);
             }
             buffer.clear();
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
         return response;
 
