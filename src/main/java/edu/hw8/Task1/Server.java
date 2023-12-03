@@ -12,6 +12,7 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import static java.lang.Thread.sleep;
 
 public class Server {
     private final static HashMap<String, String> AFFRONTS = new HashMap<>() {{
@@ -29,15 +30,15 @@ public class Server {
     private final static String DEFAULT_MESSAGE = "My honest reaction to that information: 0_0";
     private final static int BUFFER_SIZE = 1024;
     private final static int PORT = 9999;
+    private final static int SLEEP_TIME = 3000;
 
     private ServerSocketChannel socketChannel;
 
-    @SuppressWarnings("checkstyle:MagicNumber") public void run() throws IOException {
+    public void run() throws IOException {
         Selector selector = Selector.open();
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
         serverSocketChannel.socket().bind(new InetSocketAddress(PORT));
         serverSocketChannel.configureBlocking(false);
-        serverSocketChannel.socket().setSoTimeout(3000);
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
         socketChannel = serverSocketChannel;
         ExecutorService executorService = Executors.newFixedThreadPool(2);
@@ -92,8 +93,13 @@ public class Server {
         buffer.clear();
         int r = client.read(buffer);
         if (r <= 0) {
-            client.close();
-        } else {
+            sleep(SLEEP_TIME);
+            r = client.read(buffer);
+            if (r <= 0) {
+                client.close();
+            }
+        }
+        if (r > 0) {
             String response = new String(buffer.array()).trim();
             String[] words = response.split(" ");
             buffer.flip();
