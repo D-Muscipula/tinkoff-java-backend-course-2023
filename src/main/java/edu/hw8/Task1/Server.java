@@ -32,11 +32,12 @@ public class Server {
 
     private ServerSocketChannel socketChannel;
 
-    public void run() throws IOException {
+    @SuppressWarnings("checkstyle:MagicNumber") public void run() throws IOException {
         Selector selector = Selector.open();
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
         serverSocketChannel.socket().bind(new InetSocketAddress(PORT));
         serverSocketChannel.configureBlocking(false);
+        serverSocketChannel.socket().setSoTimeout(3000);
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
         socketChannel = serverSocketChannel;
         ExecutorService executorService = Executors.newFixedThreadPool(2);
