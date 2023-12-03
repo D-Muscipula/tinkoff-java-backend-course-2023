@@ -2,13 +2,11 @@ package edu.hw8.Task2;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public final class NewFixedThreadPool implements ThreadPool {
     private final int size;
     private final BlockingQueue<Runnable> tasks;
     private final Thread[] threads;
-    private final AtomicInteger ctl = new AtomicInteger(0);
 
     private NewFixedThreadPool(int size) {
         if (size <= 0) {
@@ -49,11 +47,10 @@ public final class NewFixedThreadPool implements ThreadPool {
     @Override
     public void close() throws Exception {
 
-        for (Thread thread : threads) {
-            tasks.put(PoisonPill.INSTANCE); // Poison pill to signal threads to exit
+        for (Thread ignored : threads) {
+            tasks.put(PoisonPill.INSTANCE);
 
         }
-        //awaitTerminator();
     }
 
     public void awaitTerminator() throws InterruptedException {
@@ -74,7 +71,7 @@ public final class NewFixedThreadPool implements ThreadPool {
             while (true) {
                 try {
                     Runnable task = taskQueue.take();
-                    if (task == null || task == ((PoisonPill.INSTANCE))) {
+                    if (task == PoisonPill.INSTANCE) {
                         break;
                     }
                     task.run();

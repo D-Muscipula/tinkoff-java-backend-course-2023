@@ -2,14 +2,11 @@ package edu.hw8;
 
 import edu.hw8.Task2.NewFixedThreadPool;
 import edu.hw8.Task2.ThreadPool;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CountDownLatch;
-import static java.lang.Thread.sleep;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class Task2Test {
     private static int calculateFibonacci(int n) {
@@ -20,7 +17,7 @@ public class Task2Test {
     }
 
     @Test
-    void testNewFixedThreadPool() throws InterruptedException {
+    void testNewFixedThreadPool() {
         CopyOnWriteArrayList<Integer> expected = new CopyOnWriteArrayList<>() {{
             add(0);
             add(1);
@@ -43,16 +40,13 @@ public class Task2Test {
                 threadPool.execute(() -> {
                     int fib = calculateFibonacci(index);
                     actual.add(fib);
-                    System.out.println("Fibonacci(" + index + ") = " + fib);
                     latch.countDown();
                 });
             }
             latch.await();
-            //threadPool.close();
         } catch (Exception e) {
             Thread.currentThread().interrupt();
         }
-        System.out.println(actual);
         Collections.sort(actual);
         Assertions.assertEquals(expected, actual);
     }

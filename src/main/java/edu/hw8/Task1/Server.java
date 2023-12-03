@@ -32,8 +32,6 @@ public class Server {
 
     private ServerSocketChannel socketChannel;
 
-
-
     public void run() throws IOException {
         Selector selector = Selector.open();
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
@@ -55,11 +53,10 @@ public class Server {
                 }
 
                 if (key.isReadable()) {
-                    //System.out.println(selectedKeys);
                     executorService.submit(() -> {
                         try {
 
-                            answerWithEcho(key);
+                            readAndAnswer(key);
 
                         } catch (IOException | InterruptedException e) {
                             throw new RuntimeException(e);
@@ -68,17 +65,8 @@ public class Server {
                 }
                 iter.remove();
             }
-            /*SocketChannel clientChannel = serverSocketChannel.accept();
-            System.out.println("Клиент принят");
-            ByteBuffer byteBuffer = ByteBuffer.allocate(BUFFER_SIZE);
-            int readBytes = clientChannel.read(byteBuffer);
-            byteBuffer.flip();
-            System.out.println(new String(byteBuffer.array(), StandardCharsets.UTF_8));
-            clientChannel.write(ByteBuffer.wrap(Arrays.copyOfRange(byteBuffer.array(), 0,  readBytes)));
-            clientChannel.close();*/
         }
-        //serverSocketChannel.close();
-
+        executorService.close();
     }
 
     public void close() {
@@ -97,39 +85,25 @@ public class Server {
         client.register(selector, SelectionKey.OP_READ);
     }
 
-    private static void answerWithEcho(SelectionKey key) throws IOException, InterruptedException {
+    private static void readAndAnswer(SelectionKey key) throws IOException, InterruptedException {
         ByteBuffer buffer = ByteBuffer.allocate(BUFFER_SIZE);
         SocketChannel client = (SocketChannel) key.channel();
         buffer.clear();
-        //sleep(3000);
         int r = client.read(buffer);
         if (r <= 0) {
             client.close();
-            //System.out.println("Not accepting client messages anymore");
         } else {
-
-            //
             String response = new String(buffer.array()).trim();
             String[] words = response.split(" ");
-            //System.out.println(response);
             buffer.flip();
             for (var word : words) {
                 if (AFFRONTS.containsKey(word)) {
-                    //buffer.clear();
-                    //buffer.flip();
-                    //System.out.println(new String(buffer.array()).trim());
                     client.write(ByteBuffer.wrap(AFFRONTS.get(word).getBytes()));
-                    //System.out.println(new String(ByteBuffer.wrap(AFFRONTS.get(word).getBytes()).array()));
-                    //buffer.clear();
                     return;
                 }
             }
-            //System.out.println(new String(buffer.array()).trim());
             client.write(ByteBuffer.wrap(AFFRONTS.get(DEFAULT_MESSAGE).getBytes()));
-            //System.out.println(new String(ByteBuffer.wrap(AFFRONTS.get(DEFAULT_MESSAGE).getBytes()).array()));
-            //client.close();
         }
         buffer.clear();
-        //System.out.println(new String(buffer.array()).trim() + "*");
     }
 }
