@@ -11,14 +11,14 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 public class AlgorithmOfKruskalTest {
-    static class WithOutShuffle implements Shuffle {
+    public static class WithOutShuffle implements Shuffle {
         @Override
         public void shuffle(ArrayList<Edge> edges) {
 
         }
     }
 
-    static class OurShuffle implements Shuffle {
+    public static class OurShuffle implements Shuffle {
         // 0 - 3
         // 1 - 5
         // 4 - 7
