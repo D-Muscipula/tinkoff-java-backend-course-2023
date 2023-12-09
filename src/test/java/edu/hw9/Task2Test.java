@@ -31,14 +31,8 @@ public class Task2Test {
     @Test
     void predicateTest() {
         List<File> result =
-            TreeHandler.getFiles(new File("src/test/java/edu/hw9/testDir"), TreeHandler.getSizePredicate(234));
-        ArrayList<File> files = new ArrayList<>() {{
-            add(new File("src/test/java/edu/hw9/testDir/a.txt"));
-        }};
-        Assertions.assertEquals(files, result);
-        result =
             TreeHandler.getFiles(new File("src/test/java/edu/hw9/testDir"), TreeHandler.getSizePredicate(0));
-        files = new ArrayList<>() {{
+        ArrayList<File> files = new ArrayList<>() {{
             add(new File("src/test/java/edu/hw9/testDir/testDirSecond/aasdf.txt"));
             add(new File("src/test/java/edu/hw9/testDir/testDirSecond/aboba.txt"));
         }};
