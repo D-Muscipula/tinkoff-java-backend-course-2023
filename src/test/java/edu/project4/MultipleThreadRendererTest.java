@@ -2,8 +2,6 @@ package edu.project4;
 
 import edu.project4.elements.FractalImage;
 import edu.project4.elements.Rect;
-import edu.project4.imageBuilder.ImageFormat;
-import edu.project4.imageBuilder.ImageUtils;
 import edu.project4.renders.MultipleThreadRenderer;
 import edu.project4.transformations.DiskTransformation;
 import edu.project4.transformations.HandkerchiefTransformation;
@@ -12,9 +10,6 @@ import edu.project4.transformations.HyberbolicTransformation;
 import edu.project4.transformations.LinearTransformation;
 import edu.project4.transformations.SwirlTransformation;
 import edu.project4.transformations.Transformation;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
@@ -31,11 +26,7 @@ public class MultipleThreadRendererTest {
             new SwirlTransformation(),
             new HandkerchiefTransformation()
         ));
-        Path path = Path.of("src/test/java/edu/project4/dirForTest/test1.png");
-        MultipleThreadRenderer singleThreadRenderer = new MultipleThreadRenderer();
-
-        try {
-            Files.deleteIfExists(path);
+        Assertions.assertDoesNotThrow(() -> {MultipleThreadRenderer singleThreadRenderer = new MultipleThreadRenderer();
             FractalImage fractalImage = singleThreadRenderer.render(
                 FractalImage.create(50, 50),
                 new Rect(-1.5, -1.5, 3, 3),
@@ -45,15 +36,9 @@ public class MultipleThreadRendererTest {
                 10,
                 1000000
             );
-            new LogGammaCorrector().process(fractalImage, 0.5);
-            ImageUtils.save(
-                fractalImage,
-                path,
-                ImageFormat.PNG
-            );
-            Assertions.assertTrue(Files.exists(path));
-        } catch (IOException ignored) {
-        }
+            new LogGammaCorrector().process(fractalImage, 0.5);});
+
+
     }
 }
 

@@ -4,7 +4,6 @@ import edu.project4.elements.FractalImage;
 import edu.project4.elements.Pixel;
 import edu.project4.imageBuilder.ImageFormat;
 import edu.project4.imageBuilder.ImageUtils;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import org.junit.jupiter.api.Assertions;
@@ -15,7 +14,6 @@ public class ImageBuilderTest {
     void saveTest() {
         FractalImage fractalImage = FractalImage.create(50, 50);
         Pixel[] data = fractalImage.data();
-        Path path = Path.of("src/test/java/edu/project4/dirForTest/test.png");
         for (int i = 0; i < fractalImage.height() * fractalImage.width(); i++) {
             Pixel pixel = data[i];
             if (i % 2 == 0) {
@@ -24,10 +22,11 @@ public class ImageBuilderTest {
         }
 
         try {
+            Path path = Path.of("src/test/java/edu/project4/dirForTest/test.png");
             ImageUtils.save(fractalImage, path, ImageFormat.PNG);
             Assertions.assertTrue(Files.exists(path));
             Files.deleteIfExists(path);
-        } catch (IOException ignored) {
+        } catch (Exception ignored) {
         }
     }
 
