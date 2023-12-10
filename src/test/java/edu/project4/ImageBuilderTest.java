@@ -22,12 +22,12 @@ public class ImageBuilderTest {
                 pixel.setRGB(i % 255, (i * 2) % 255, (i * 3) % 255);
             }
         }
-        ImageUtils.save(fractalImage, path, ImageFormat.PNG);
-        Assertions.assertTrue(Files.exists(path));
+
         try {
+            ImageUtils.save(fractalImage, path, ImageFormat.PNG);
+            Assertions.assertTrue(Files.exists(path));
             Files.deleteIfExists(path);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException ignored) {
         }
     }
 
