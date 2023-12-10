@@ -34,7 +34,7 @@ public class SingleThreadRendererTest {
         Path path = Path.of("src/test/java/edu/project4/dirForTest/test.png");
         SingleThreadRenderer singleThreadRenderer = new SingleThreadRenderer();
         FractalImage fractalImage = singleThreadRenderer.render(
-            FractalImage.create(2048, 1080),
+            FractalImage.create(50, 50),
             new Rect(-1.5, -1.5, 3, 3),
             TRANSFORMATIONS,
             6,

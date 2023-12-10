@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 public class ImageBuilderTest {
     @Test
     void saveTest() {
-        FractalImage fractalImage = FractalImage.create(300, 300);
+        FractalImage fractalImage = FractalImage.create(50, 50);
         Pixel[] data = fractalImage.data();
         Path path = Path.of("src/test/java/edu/project4/dirForTest/test.png");
         for (int i = 0; i < fractalImage.height() * fractalImage.width(); i++) {
