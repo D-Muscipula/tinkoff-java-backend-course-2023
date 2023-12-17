@@ -17,7 +17,8 @@ public class Task2Test {
             .method(ElementMatchers.named("sum"))
             .intercept(MethodDelegation.to(NewArithmeticUtils.class))
             .make()
-            .load(ArithmeticUtils.class.getClassLoader(), ClassReloadingStrategy.fromInstalledAgent());
+            .load(ArithmeticUtils.class.getClassLoader(), ClassReloadingStrategy.fromInstalledAgent())
+            .getLoaded();
         int actual = ArithmeticUtils.sum(2, 3);
         Assertions.assertEquals(6,actual);
 
